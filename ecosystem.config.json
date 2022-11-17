@@ -1,0 +1,23 @@
+{
+  "apps": [
+    {
+      "name": "app",
+      "script": "src/index.js",
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "time": true,
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }, 
+    {
+      "name": "emailWorker",
+      "args": "consumeMessage",
+      "exec_mode": "fork",
+      "watch": false,
+      "script": "src/utils/workers/emailWorker.js",
+      "instances": 1
+    }
+  ]
+}
